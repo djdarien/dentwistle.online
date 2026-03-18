@@ -17,14 +17,18 @@
             color: #fff;
             text-align: center;
             padding: 10px 0;
+            transition: box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
         nav a {
             color: #fff;
             text-decoration: none;
             padding: 10px 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         nav a:hover {
             background-color: #555;
+            transform: scale(1.05);
         }
         .container {
             max-width: 960px;
@@ -49,6 +53,151 @@
         .projects-list li a:hover {
             background-color: #ddd;
         }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .project-card {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-top: 4px solid #ff0000;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .project-card:hover {
+            box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
+            transform: translateY(-5px);
+        }
+        .project-card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            overflow: hidden;
+        }
+        .project-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-card-content {
+            padding: 20px;
+        }
+        .project-card h3 {
+            margin: 0 0 10px 0;
+            color: #ff6666;
+            font-size: 1.3em;
+        }
+        .project-card p {
+            margin: 10px 0;
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #ddd;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        .project-tags span {
+            background-color: rgba(255, 0, 0, 0.2);
+            color: #ff6666;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            border: 1px solid #ff6666;
+        }
+        .project-card-btn {
+            display: inline-block;
+            background-color: #ff6666;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .project-card-btn:hover {
+            background-color: #ff0000;
+        }
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            border-top: 3px solid #ff0000;
+            padding: 40px 0 20px 0;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        footer .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-section {
+            margin-bottom: 20px;
+        }
+        .footer-section h3 {
+            color: #ff0000;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: #ff6666;
+            transform: scale(1.1);
+        }
+        .footer-socials {
+            margin: 15px 0;
+        }
+        .footer-socials a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #ff0000;
+            color: #fff;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 8px;
+            font-size: 1.3em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        .footer-socials a:hover {
+            background-color: #ff6666;
+            transform: scale(1.15) rotateZ(5deg);
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+        }
+        .footer-copyright {
+            border-top: 1px solid #555;
+            margin-top: 20px;
+            padding-top: 20px;
+            color: #999;
+        }
+        @media (max-width: 768px) {
+            .footer-links a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -65,15 +214,130 @@
     <div class="container">
         <h1>Projects</h1>
         <p>Check out some of my projects:</p>
-        <ul class="projects-list">
-             <li><a href="/SPTT4/index.html">Super Turbo Turkey Puncher 4 - doom 3 mini game remix</a></li>
-             <li><a href="https://djdarien.github.io/macpi/">Mac Pi (Raspberry  Pi Project)</a></li>
-             <li><a href="https://djdarien.github.io/arcade1up-rpi-easy-setup">Arcade Cabinents (arcade 1up) Raspberry Pi Project</a></li>
-            <li><a href="/adventures-of-ollie-the-ball-the-lost-coin-hunt.html">Adventures of Ollie the Ball</a></li>
-            <li><a href="/birdy-flap.html">Birdy Flap game</a></li>
-            <li><a href="/snake.html">Snake game</a></li>
-            <!-- Add more project links as needed -->
-        </ul>
+        
+        <div class="project-grid">
+            <!-- Project 1: SPTT4 Game -->
+            <div class="project-card">
+                <div class="project-card-image">🎮</div>
+                <div class="project-card-content">
+                    <h3>Super Turbo Turkey Puncher 4</h3>
+                    <p>A fast-paced mini-game remix inspired by Doom 3. Battle turkeys with dynamic gameplay and persistent high score tracking.</p>
+                    <div class="project-tags">
+                        <span>Canvas API</span>
+                        <span>JavaScript</span>
+                        <span>Game Dev</span>
+                    </div>
+                    <a href="/SPTT4/index.html" class="project-card-btn">Play Game →</a>
+                </div>
+            </div>
+
+            <!-- Project 2: Mac Pi -->
+            <div class="project-card">
+                <div class="project-card-image">🍎</div>
+                <div class="project-card-content">
+                    <h3>Mac Pi - Raspberry Pi Project</h3>
+                    <p>Apple Macintosh emulation on Raspberry Pi. Brings retro Mac computing to modern hardware with full system emulation.</p>
+                    <div class="project-tags">
+                        <span>Raspberry Pi</span>
+                        <span>Emulation</span>
+                        <span>Hardware</span>
+                    </div>
+                    <a href="https://djdarien.github.io/macpi/" class="project-card-btn">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 3: Arcade 1UP -->
+            <div class="project-card">
+                <div class="project-card-image">👾</div>
+                <div class="project-card-content">
+                    <h3>Arcade Cabinets (1UP) Setup</h3>
+                    <p>Easy setup guide for building retro arcade cabinets using Arcade 1UP cabinets and Raspberry Pi. Complete step-by-step instructions.</p>
+                    <div class="project-tags">
+                        <span>Arcade</span>
+                        <span>Raspberry Pi</span>
+                        <span>DIY</span>
+                    </div>
+                    <a href="https://djdarien.github.io/arcade1up-rpi-easy-setup" class="project-card-btn">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 4: Adventures of Ollie -->
+            <div class="project-card">
+                <div class="project-card-image">⚽</div>
+                <div class="project-card-content">
+                    <h3>Adventures of Ollie the Ball</h3>
+                    <p>A classic platformer game featuring Ollie the Ball on an epic quest to find the Lost Coin Hunt. Retro gameplay meets modern web technology.</p>
+                    <div class="project-tags">
+                        <span>Game</span>
+                        <span>Web</span>
+                        <span>Classic</span>
+                    </div>
+                    <a href="/adventures-of-ollie-the-ball-the-lost-coin-hunt.html" class="project-card-btn">Play →</a>
+                </div>
+            </div>
+
+            <!-- Project 5: Birdy Flap -->
+            <div class="project-card">
+                <div class="project-card-image">🐦</div>
+                <div class="project-card-content">
+                    <h3>Birdy Flap Game</h3>
+                    <p>A fun and addictive bird-flying game inspired by classic arcade mechanics. Test your reflexes and climb the leaderboard.</p>
+                    <div class="project-tags">
+                        <span>Game</span>
+                        <span>Arcade</span>
+                        <span>Web</span>
+                    </div>
+                    <a href="/birdy-flap.html" class="project-card-btn">Play →</a>
+                </div>
+            </div>
+
+            <!-- Project 6: Snake Game -->
+            <div class="project-card">
+                <div class="project-card-image">🐍</div>
+                <div class="project-card-content">
+                    <h3>Snake Game</h3>
+                    <p>A modern take on the classic Snake game. Navigate the grid, eat food, and grow your snake while avoiding walls and collisions.</p>
+                    <div class="project-tags">
+                        <span>Canvas</span>
+                        <span>JavaScript</span>
+                        <span>Game</span>
+                    </div>
+                    <a href="/snake.html" class="project-card-btn">Play →</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Me</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="music.html">Music</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Me</h3>
+                <div class="footer-socials">
+                    <a href="https://www.twitch.tv/khaos_demon" title="Twitch">🎮</a>
+                    <a href="https://www.youtube.com/computerwiz/" title="YouTube">📺</a>
+                    <a href="https://soundcloud.com/djdarien" title="SoundCloud">🎵</a>
+                    <a href="https://github.com/djdarien" title="GitHub">💻</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Get Started</h3>
+                <p><strong>Let's work together!</strong></p>
+                <p><a href="services.html" style="color: #ff6666; text-decoration: none;">View My Services →</a></p>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Darien Entwistle - All rights reserved. | <a href="https://dentwistle.online" style="color: #ff6666; text-decoration: none;">dentwistle.online</a></p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

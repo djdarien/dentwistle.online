@@ -52,6 +52,68 @@
             border-radius: 10px;
             background-color: #111;
         }
+        footer {
+            background-color: #333;
+            color: #fff;
+            border-top: 3px solid #ff0000;
+            padding: 40px 0 20px 0;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        footer .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-section {
+            margin-bottom: 20px;
+        }
+        .footer-section h3 {
+            color: #ff0000;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: #ff6666;
+        }
+        .footer-socials {
+            margin: 15px 0;
+        }
+        .footer-socials a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #ff0000;
+            color: #fff;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 8px;
+            font-size: 1.3em;
+            transition: background-color 0.3s ease;
+        }
+        .footer-socials a:hover {
+            background-color: #ff6666;
+        }
+        .footer-copyright {
+            border-top: 1px solid #555;
+            margin-top: 20px;
+            padding-top: 20px;
+            color: #999;
+        }
+        @media (max-width: 768px) {
+            .footer-links a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -92,5 +154,37 @@
     <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/185527116&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/djdarien" title="djdarien" target="_blank" style="color: #cccccc; text-decoration: none;">djdarien</a> · <a href="https://soundcloud.com/djdarien/jaws-step-jaws-theme-edm-music-mix" title="Jaws Step (JAWS theme - EDM Music Mix)" target="_blank" style="color: #cccccc; text-decoration: none;">Jaws Step (JAWS theme - EDM Music Mix)</a></div>
 
 </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Me</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="music.html">Music</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Me</h3>
+                <div class="footer-socials">
+                    <a href="https://www.twitch.tv/khaos_demon" title="Twitch">🎮</a>
+                    <a href="https://www.youtube.com/computerwiz/" title="YouTube">📺</a>
+                    <a href="https://soundcloud.com/djdarien" title="SoundCloud">🎵</a>
+                    <a href="https://github.com/djdarien" title="GitHub">💻</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Get Started</h3>
+                <p><strong>Let's work together!</strong></p>
+                <p><a href="services.html" style="color: #ff6666; text-decoration: none;">View My Services →</a></p>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Darien Entwistle - All rights reserved. | <a href="https://dentwistle.online" style="color: #ff6666; text-decoration: none;">dentwistle.online</a></p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

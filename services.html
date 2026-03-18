@@ -53,6 +53,66 @@
     .service-list li a:hover {
       background-color: #cc0000; /* Darker red on hover */
     }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+    .service-card {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-top: 4px solid #ff0000;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
+      transform: translateY(-5px);
+    }
+    .service-icon {
+      font-size: 3em;
+      margin-bottom: 15px;
+    }
+    .service-card h3 {
+      margin: 15px 0;
+      color: #ff6666;
+      font-size: 1.3em;
+    }
+    .service-card p {
+      margin: 10px 0;
+      color: #ddd;
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+    .service-price {
+      font-size: 1.5em;
+      color: #ffff99;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    .service-btn {
+      display: inline-block;
+      background-color: #ff6666;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 15px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-weight: bold;
+    }
+    .service-btn:hover {
+      background-color: #ff0000;
+      transform: scale(1.05);
+    }
+    @media (max-width: 768px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     .ebay-link {
       text-align: center;
       margin-top: 20px;
@@ -81,6 +141,68 @@
     .paypal-link a:hover {
       background-color: #555;
     }
+    footer {
+      background-color: #333;
+      color: #fff;
+      border-top: 3px solid #ff0000;
+      padding: 40px 0 20px 0;
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    footer .footer-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .footer-section {
+      margin-bottom: 20px;
+    }
+    .footer-section h3 {
+      color: #ff0000;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: #ff6666;
+    }
+    .footer-socials {
+      margin: 15px 0;
+    }
+    .footer-socials a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #ff0000;
+      color: #fff;
+      border-radius: 50%;
+      line-height: 40px;
+      text-align: center;
+      margin: 0 8px;
+      font-size: 1.3em;
+      transition: background-color 0.3s ease;
+    }
+    .footer-socials a:hover {
+      background-color: #ff6666;
+    }
+    .footer-copyright {
+      border-top: 1px solid #555;
+      margin-top: 20px;
+      padding-top: 20px;
+      color: #999;
+    }
+    @media (max-width: 768px) {
+      .footer-links a {
+        display: block;
+        margin: 5px 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -96,13 +218,37 @@
   </nav>
   <div class="container">
     <h1>Services</h1>
-    <p> I provide various services to anyone in need of assistance or projects that are looking for Consulting services ,etc ! Please take a look at what I offer! 
-      I offer a wide variety of services to fit most needs in the tech industry! </p>
-    <ul class="service-list">
-      <li><a href="https://paypal.me/djdarien?amount=75&currency=USD&description=Cyber%20Security%20Consulting">Cyber Security Consulting - $75/hr</a></li>
-      <li><a href="https://paypal.me/djdarien?amount=50&currency=USD&description=Remote%20Computer%20Repair">Remote Computer Repair - $50/hr</a></li>
-      <li><a href="mailto:your@email.com?subject=3D%20Printing%20Services%20Quote">3D Printing Services - Contact Me for Quote</a></li>
-    </ul>
+    <p>I provide various services to anyone in need of assistance or projects looking for consulting. I offer a wide variety of solutions to fit most needs in the tech industry!</p>
+    
+    <div class="service-grid">
+      <!-- Service 1: Cyber Security Consulting -->
+      <div class="service-card">
+        <div class="service-icon">🔒</div>
+        <h3>Cyber Security Consulting</h3>
+        <p>Expert guidance on securing your systems, networks, and data. I provide comprehensive security audits and implementation strategies to protect your digital assets.</p>
+        <div class="service-price">$75/hr</div>
+        <a href="https://paypal.me/djdarien?amount=75&currency=USD&description=Cyber%20Security%20Consulting" class="service-btn">Get Started →</a>
+      </div>
+
+      <!-- Service 2: Remote Computer Repair -->
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3>Remote Computer Repair</h3>
+        <p>Fast and reliable remote support for troubleshooting, system optimization, and software issues. I'll get your system running smoothly from anywhere.</p>
+        <div class="service-price">$50/hr</div>
+        <a href="https://paypal.me/djdarien?amount=50&currency=USD&description=Remote%20Computer%20Repair" class="service-btn">Get Started →</a>
+      </div>
+
+      <!-- Service 3: 3D Printing Services -->
+      <div class="service-card">
+        <div class="service-icon">🖨️</div>
+        <h3>3D Printing Services</h3>
+        <p>Turn your ideas into reality with professional 3D printing. From prototypes to final products, I provide high-quality printing solutions for all your needs.</p>
+        <div class="service-price">Custom Quote</div>
+        <a href="mailto:darien@dentwistle.online?subject=3D%20Printing%20Services%20Quote" class="service-btn">Get Quote →</a>
+      </div>
+    </div>
+
     <div class="ebay-link">
       <a href="https://www.ebay.com/usr/dent2133">Visit My eBay Store</a>
     </div>
@@ -110,5 +256,37 @@
       <a href="https://paypal.me/djdarien">Pay with PayPal</a>
     </div>
   </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Me</a>
+          <a href="projects.html">Projects</a>
+          <a href="services.html">Services</a>
+          <a href="music.html">Music</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Me</h3>
+        <div class="footer-socials">
+          <a href="https://www.twitch.tv/khaos_demon" title="Twitch">🎮</a>
+          <a href="https://www.youtube.com/computerwiz/" title="YouTube">📺</a>
+          <a href="https://soundcloud.com/djdarien" title="SoundCloud">🎵</a>
+          <a href="https://github.com/djdarien" title="GitHub">💻</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Get Started</h3>
+        <p><strong>Let's work together!</strong></p>
+        <p><a href="services.html" style="color: #ff6666; text-decoration: none;">View My Services →</a></p>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2026 Darien Entwistle - All rights reserved. | <a href="https://dentwistle.online" style="color: #ff6666; text-decoration: none;">dentwistle.online</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
