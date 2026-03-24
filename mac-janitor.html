@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mac Janitor - System Maintenance App</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #ff0000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            transition: box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+        nav a:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            color: #ff6666;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #ffff99;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        .hero-section {
+            background-color: rgba(255, 0, 0, 0.1);
+            border-left: 5px solid #ff0000;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 5px;
+        }
+        .hero-section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .download-btn {
+            display: inline-block;
+            background-color: #ff6666;
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 20px auto;
+            display: block;
+            width: fit-content;
+        }
+        .download-btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 0, 0, 0.4);
+        }
+        .features-section {
+            margin-bottom: 50px;
+        }
+        .features-section h2 {
+            color: #ffff99;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 10px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .feature-card {
+            background-color: rgba(255, 0, 0, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .feature-card:hover {
+            background-color: rgba(255, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+        .feature-card h3 {
+            color: #ff6666;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            margin: 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        .requirements-section {
+            background-color: rgba(255, 0, 0, 0.08);
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+        }
+        .requirements-section h2 {
+            color: #ffff99;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .requirements-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #ccc;
+        }
+        .requirements-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff6666;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .technical-section {
+            margin-bottom: 50px;
+        }
+        .technical-section h2 {
+            color: #ffff99;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 10px;
+        }
+        .tech-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .tech-spec {
+            background-color: rgba(255, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ff6666;
+        }
+        .tech-spec-label {
+            color: #ffff99;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        .tech-spec-value {
+            color: #fff;
+        }
+        .links-section {
+            background-color: rgba(255, 0, 0, 0.08);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .links-section a {
+            color: #ff6666;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        .links-section a:hover {
+            color: #ffff99;
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            border-top: 3px solid #ff0000;
+            padding: 40px 0 20px 0;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        footer .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-section {
+            margin-bottom: 20px;
+        }
+        .footer-section h3 {
+            color: #ff0000;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: #ff6666;
+            transform: scale(1.1);
+        }
+        .footer-socials {
+            margin: 15px 0;
+        }
+        .footer-socials a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #ff0000;
+            color: #fff;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 8px;
+            font-size: 1.3em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        .footer-socials a:hover {
+            background-color: #ff6666;
+            transform: scale(1.15) rotateZ(5deg);
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+        }
+        .footer-copyright {
+            border-top: 1px solid #555;
+            margin-top: 20px;
+            padding-top: 20px;
+            color: #999;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .tech-specs {
+                grid-template-columns: 1fr;
+            }
+            footer .footer-content {
+                padding: 0 15px;
+            }
+            .footer-links a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="projects.html">Projects</a>
+        <a href="services.html">Services & Products</a>
+        <a href="music.html">My Music</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="blog.html">Blog</a>
+        <a href="https://ev-expert-chat-701502515049.us-west1.run.app" target="_blank">EVy - EV Chat Assistant</a>
+        <a href="socialmedia.html">Social Media</a>
+    </nav>
+
+    <div class="container">
+        <h1>🧹 Mac Janitor</h1>
+        <p class="subtitle">Professional macOS System Maintenance & Optimization</p>
+
+        <div class="hero-section">
+            <p>Mac Janitor is a native macOS maintenance application built with modern SwiftUI that cleans and optimizes your Mac through comprehensive system maintenance. Designed to handle cleaning tasks that other programs have failed to do, Mac Janitor ensures your Mac runs smoothly with advanced safety features and intelligent caching strategies.</p>
+            <a href="https://github.com/djdarien/MacJanitor/releases/download/final_release_v5/MacJanitor.app.zip" class="download-btn">⬇️ Download Mac Janitor v5.0</a>
+        </div>
+
+        <div class="features-section">
+            <h2>Key Features</h2>
+            
+            <h3 style="color: #ff6666; margin-top: 30px; margin-bottom: 15px;">🧹 Cleaning & Maintenance</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Cache Cleanup</h3>
+                    <p>Clean user and system caches with intelligent 7-day retention policy to preserve recent data while freeing up space.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Log Cleanup</h3>
+                    <p>Remove diagnostic logs safely while maintaining a 7-day retention window for troubleshooting and diagnostics.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Trash Emptying</h3>
+                    <p>Completely empty trash on all volumes including hidden files for complete disk cleanup.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Browser Cache</h3>
+                    <p>Clean Safari and other browser caches to reclaim disk space and improve browsing performance.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #ff6666; margin-top: 30px; margin-bottom: 15px;">⚡ System Optimization</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>DNS Cache Flush</h3>
+                    <p>Clear DNS cache to resolve network issues and improve browsing speed.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Font Cache Cleanup</h3>
+                    <p>Remove accumulated font cache files that can slow down system performance.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Memory Purge</h3>
+                    <p>Free up unused memory to improve overall system responsiveness and performance.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Disk Maintenance</h3>
+                    <p>Verify and optimize disk structure for better long-term performance.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #ff6666; margin-top: 30px; margin-bottom: 15px;">🔒 Security & Safety</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>7-Day Retention</h3>
+                    <p>Smart retention policy ensures recent files and data are preserved while old files are safely cleaned.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Time Machine Snapshots</h3>
+                    <p>Automatic Time Machine snapshots created before major operations for complete system recovery.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Secure Operations</h3>
+                    <p>Command escaping prevents injection attacks with AppleScript GUI password prompts.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Operation Logging</h3>
+                    <p>Comprehensive logging with timestamps tracks all maintenance operations for transparency and debugging.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #ff6666; margin-top: 30px; margin-bottom: 15px;">🛠️ Developer Tools</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Dev Mode (Hidden)</h3>
+                    <p>Advanced developer mode accessible with Cmd+Shift+2 for power users and developers.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Live Log Viewer</h3>
+                    <p>Real-time logging display shows detailed operation history and system information.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Operation Logging</h3>
+                    <p>Detailed logs stored at ~/Library/Logs/MacJanitor/ with full operation history.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="requirements-section">
+            <h2>System Requirements</h2>
+            <ul class="requirements-list">
+                <li><strong>macOS 12.0 (Monterey) or later</strong> - Compatible with Monterey through Sequoia</li>
+                <li><strong>Administrator Privileges</strong> - Required for system maintenance operations</li>
+                <li><strong>~100MB Free Disk Space</strong> - Minimum space for application and operations</li>
+                <li><strong>Universal Binary</strong> - Works on both Apple Silicon and Intel Macs</li>
+                <li><strong>Time Machine (Recommended)</strong> - Backup before major maintenance operations</li>
+            </ul>
+        </div>
+
+        <div class="technical-section">
+            <h2>Technical Specifications</h2>
+            <div class="tech-specs">
+                <div class="tech-spec">
+                    <div class="tech-spec-label">Framework</div>
+                    <div class="tech-spec-value">SwiftUI (Modern Native macOS)</div>
+                </div>
+                <div class="tech-spec">
+                    <div class="tech-spec-label">Architecture</div>
+                    <div class="tech-spec-value">MVVM with @Observable</div>
+                </div>
+                <div class="tech-spec">
+                    <div class="tech-spec-label">Languages</div>
+                    <div class="tech-spec-value">Swift 5.8+, Shell, Makefile</div>
+                </div>
+                <div class="tech-spec">
+                    <div class="tech-spec-label">Minimum macOS</div>
+                    <div class="tech-spec-value">macOS 12.0 (Monterey)</div>
+                </div>
+                <div class="tech-spec">
+                    <div class="tech-spec-label">Package Manager</div>
+                    <div class="tech-spec-value">Swift Package Manager</div>
+                </div>
+                <div class="tech-spec">
+                    <div class="tech-spec-label">Current Version</div>
+                    <div class="tech-spec-value">v5.0 (Final Release)</div>
+                </div>
+                <div class="tech-spec">
+                    <div class="tech-spec-label">License</div>
+                    <div class="tech-spec-value">MIT Open Source</div>
+                </div>
+                <div class="tech-spec">
+                    <div class="tech-spec-label">Hardware</div>
+                    <div class="tech-spec-value">Apple Silicon & Intel</div>
+                </div>
+            </div>
+
+            <h3 style="color: #ff6666; margin-top: 30px; margin-bottom: 15px;">Architecture Highlights</h3>
+            <p style="line-height: 1.8;">Mac Janitor uses a modern MVVM architecture with SwiftUI, ensuring a responsive and intuitive user interface. The application is built entirely with Swift and leverages the latest macOS APIs while maintaining backward compatibility with macOS 12+. System Integrity Protection awareness and graceful error handling ensure safe operations even on locked-down systems.</p>
+        </div>
+
+        <div class="links-section">
+            <h3 style="color: #ffff99; margin-top: 0;">Get More Information</h3>
+            <p style="margin-bottom: 15px;">Learn more about Mac Janitor or contribute to the project on GitHub</p>
+            <a href="https://github.com/djdarien/MacJanitor" target="_blank">GitHub Repository</a>
+            <a href="https://github.com/djdarien/MacJanitor/releases" target="_blank">All Releases</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Me</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="music.html">Music</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Me</h3>
+                <div class="footer-socials">
+                    <a href="https://www.twitch.tv/khaos_demon" title="Twitch">🎮</a>
+                    <a href="https://www.youtube.com/computerwiz/" title="YouTube">📺</a>
+                    <a href="https://soundcloud.com/djdarien" title="SoundCloud">🎵</a>
+                    <a href="https://github.com/djdarien" title="GitHub">💻</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Get Started</h3>
+                <p><strong>Let's work together!</strong></p>
+                <p><a href="services.html" style="color: #ff6666; text-decoration: none;">View My Services →</a></p>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Darien Entwistle - All rights reserved. | <a href="https://dentwistle.online" style="color: #ff6666; text-decoration: none;">dentwistle.online</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
