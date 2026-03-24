@@ -215,12 +215,26 @@
         <a href="services.html">Services & Products</a>
         <a href="music.html">My Music</a>
         <a href="downloads.html">Downloads</a>
-        <a href="https://ai.djdarien.online/">AI ChatGPT</a>
+        <a href="blog.html">Blog</a>
         <a href="socialmedia.html">Social Media</a>
     </nav>
     <div class="container">
         <div class="welcome-section">
-            <h1>Welcome!</h1>
+            <h1 id="welcome-heading">Welcome!</h1>
+            <script>
+                function getGreeting() {
+                    const now = new Date();
+                    const hour = now.getHours();
+                    if (hour >= 5 && hour < 12) return "Good morning";
+                    if (hour >= 12 && hour < 18) return "Good afternoon";
+                    if (hour >= 18 && hour < 22) return "Good evening";
+                    return "Welcome and good night";
+                }
+                document.addEventListener("DOMContentLoaded", function() {
+                    const heading = document.getElementById("welcome-heading");
+                    heading.textContent = getGreeting() + "!";
+                });
+            </script>
             <div class="welcome-text">
                 <div id="visitor-info" style="margin-bottom: 20px; font-weight: bold;"></div>
                 <p>What is this all about?</p>
@@ -257,14 +271,13 @@
     </div>
 
     <script>
-        // Fetch and display visitor IP and country
-        fetch('https://ipwho.is/')
+        // Fetch and display visitor public IP
+        fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
                 const ip = data.ip;
-                const country = data.country;
                 const infoDiv = document.getElementById('visitor-info');
-                infoDiv.innerHTML = `You are visiting from <span style="color: yellow;">${ip}</span> (${country})`;
+                infoDiv.innerHTML = `Your public IP address is <span style="color: yellow;">${ip}</span>`;
             })
             .catch(error => {
                 console.error('Error fetching IP info:', error);
