@@ -1,0 +1,40 @@
+name: Link Checker
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday at midnight UTC
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            './**/*.html'
+            './**/*.md'
+            './**/*.sh'
+            --exclude-mail
+            --max-retries 3
+            --accept 200,429
+          # output: lychee-report.md
+          # fail: true
+
+      # Optional: Create issue on failures (uncomment if desired)
+      # - name: Create Issue From File
+      #   if: failure()
+      #   uses: peter-evans/create-issue-from-file@v5
+      #   with:
+      #     title: Link Checker Report
+      #     content-filepath: ./lychee/out.md
+      #     labels: bug, links
