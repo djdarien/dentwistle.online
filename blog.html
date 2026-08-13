@@ -4,165 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Darien Entwistle</title>
+    <link rel="stylesheet" href="css/site.css">
     <style>
-        body {
-            background-image: url('https://hips.hearstapps.com/hmg-prod/images/michael-schumacher-of-germany-racing-for-ferrari-during-the-news-photo-1646420952.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
-        nav {
-            background-color: #ff0000;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            transition: box-shadow 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        nav a:hover {
-            background-color: #555;
-            transform: scale(1.05);
-        }
-        .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        h1 {
-            text-align: center;
-            background-color: rgba(255, 0, 0, 0.881);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
         .blog-filters {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 1.75rem;
             flex-wrap: wrap;
         }
         .blog-filter-btn {
-            background-color: #ff6666;
-            color: #fff;
-            border: 2px solid #ff0000;
-            padding: 10px 20px;
-            border-radius: 25px;
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--red);
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-weight: bold;
-            font-size: 1em;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s, color 0.2s, transform 0.15s;
         }
         .blog-filter-btn:hover,
         .blog-filter-btn.active {
-            background-color: #ff0000;
-            transform: scale(1.05);
+            background: var(--red);
+            color: #fff;
+            transform: translateY(-1px);
         }
         .blog-posts {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            gap: 1.35rem;
+            margin: 1.5rem 0;
         }
         article.blog-post-card {
-            background-color: rgba(0, 0, 0, 0.5);
-            border-top: 4px solid #ff0000;
-            border-radius: 10px;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
             overflow: hidden;
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
         }
         article.blog-post-card:hover {
-            box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
             transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(230, 57, 70, 0.22);
         }
         .blog-post-header {
-            background-color: #333;
-            padding: 20px;
-            border-bottom: 2px solid #ff0000;
+            background: rgba(0,0,0,0.25);
+            padding: 1.25rem;
+            border-bottom: 2px solid var(--red);
         }
         .blog-post-header h2 {
-            margin: 0 0 10px 0;
-            color: #ff6666;
-            font-size: 1.4em;
+            margin: 0 0 0.6rem 0;
+            color: var(--red-soft);
+            font-size: 1.25rem;
         }
         .blog-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
-            font-size: 0.9em;
-            color: #ddd;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
-        .blog-date {
-            color: #ffff99;
-            font-weight: bold;
-        }
-        .blog-author {
-            color: #ff6666;
-        }
+        .blog-date { color: var(--sand); font-weight: 700; }
+        .blog-author { color: var(--red-soft); }
         .blog-category {
             display: inline-block;
-            background-color: rgba(255, 0, 0, 0.2);
-            color: #ffff99;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            border: 1px solid #ffff99;
+            background: rgba(230, 57, 70, 0.15);
+            color: var(--sand);
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(244, 162, 97, 0.4);
         }
         .blog-post-excerpt {
-            padding: 20px;
+            padding: 1.25rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
         .blog-post-excerpt p {
-            margin: 0 0 15px 0;
-            font-size: 0.95em;
+            margin: 0 0 1rem 0;
+            font-size: 0.95rem;
             line-height: 1.6;
-            color: #ddd;
-        }
-        .blog-post-excerpt p:last-child {
-            margin-bottom: 0;
+            color: var(--text-muted);
         }
         .blog-read-more {
             display: inline-block;
-            background-color: #ff6666;
+            background: var(--red);
             color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 0.6rem 1.15rem;
+            border-radius: 10px;
             text-decoration: none;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
+            margin-top: auto;
+            font-weight: 600;
             align-self: flex-start;
             cursor: pointer;
             border: none;
-            font-size: 1em;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.15s;
         }
         .blog-read-more:hover {
-            background-color: #ff0000;
+            background: var(--red-dark);
+            transform: translateY(-2px);
         }
         .blog-single {
-            background-color: rgba(0, 0, 0, 0.5);
-            border-top: 4px solid #ff0000;
-            border-radius: 10px;
-            padding: 30px;
-            margin: 30px 0;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
         }
         .blog-single h2 {
-            color: #ff6666;
-            font-size: 2em;
+            color: var(--red-soft);
+            font-size: 1.75rem;
             margin-top: 0;
         }
         .blog-single-meta {
@@ -170,45 +129,36 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ff0000;
-            font-size: 0.95em;
-        }
-        .blog-single-meta .blog-date {
-            color: #ffff99;
-            font-weight: bold;
-        }
-        .blog-single-meta .blog-author {
-            color: #ff6666;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--red);
+            font-size: 0.95rem;
         }
         .blog-content {
             line-height: 1.8;
-            font-size: 1em;
-            color: #ddd;
+            font-size: 1rem;
+            color: var(--text-muted);
         }
         .blog-content h3 {
-            color: #ff6666;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 1.3em;
+            color: var(--red-soft);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
         }
         .blog-content h4 {
-            color: #ffff99;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.1em;
+            color: var(--sand);
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
         }
-        .blog-content p {
-            margin-bottom: 15px;
-        }
+        .blog-content p { margin-bottom: 1rem; }
         .blog-content ul, .blog-content ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
+            margin-left: 1.25rem;
+            margin-bottom: 1rem;
         }
         .blog-content li {
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
             line-height: 1.6;
         }
         .youtube-container {
@@ -218,8 +168,8 @@
             height: 0;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            margin: 30px 0;
+            box-shadow: var(--shadow);
+            margin: 1.5rem 0;
         }
         .youtube-container iframe {
             position: absolute;
@@ -229,116 +179,56 @@
             height: 100%;
             border: none;
         }
+        .back-btn {
+            background: var(--red);
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.15rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .back-btn:hover { background: var(--red-dark); }
+        .hidden { display: none; }
         @media (max-width: 768px) {
-            .blog-posts {
-                grid-template-columns: 1fr;
-            }
-            .blog-filters {
-                flex-direction: column;
-            }
-            .blog-single {
-                padding: 20px;
-            }
-            .blog-single-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            border-top: 3px solid #ff0000;
-            padding: 40px 0 20px 0;
-            margin-top: 50px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-        footer .footer-content {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .footer-section {
-            margin-bottom: 20px;
-        }
-        .footer-section h3 {
-            color: #ff0000;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-        .footer-links a:hover {
-            color: #ff6666;
-            transform: scale(1.1);
-        }
-        .footer-socials {
-            margin: 15px 0;
-        }
-        .footer-socials a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: #ff0000;
-            color: #fff;
-            border-radius: 50%;
-            line-height: 40px;
-            text-align: center;
-            margin: 0 8px;
-            font-size: 1.3em;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-        }
-        .footer-socials a:hover {
-            background-color: #ff6666;
-            transform: scale(1.15) rotateZ(5deg);
-            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
-        }
-        .footer-copyright {
-            border-top: 1px solid #555;
-            margin-top: 20px;
-            padding-top: 20px;
-            color: #999;
-        }
-        @media (max-width: 768px) {
-            .footer-links a {
-                display: block;
-                margin: 5px 0;
-            }
-        }
-        .hidden {
-            display: none;
+            .blog-posts { grid-template-columns: 1fr; }
+            .blog-filters { flex-direction: column; align-items: stretch; }
+            .blog-single { padding: 1.25rem; }
+            .blog-single-meta { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="projects.html">Projects</a>
-        <a href="services.html">Services & Products</a>
-        <a href="music.html">My Music</a>
-        <a href="downloads.html">Downloads</a>
-        <a href="blog.html">Blog</a>
-        <a href="https://ev-expert-chat-701502515049.us-west1.run.app" target="_blank">EVy - EV Chat Assistant</a>
-        <a href="socialmedia.html">Social Media</a>
-    </nav>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">dent<span>wistle</span>.online</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="socialmedia.html">Social</a></li>
+        <li><a href="https://ev-expert-chat-701502515049.us-west1.run.app" target="_blank" rel="noopener" class="external">EVy</a></li>
+      </ul>
+    </div>
+  </header>
 
     <div class="container">
-        <h1>📖 My Blog</h1>
+        <h1 class="page-title">My <span>Blog</span></h1>
         
         <div class="blog-filters">
             <button class="blog-filter-btn active" onclick="filterPosts('all')">All Posts</button>
             <button class="blog-filter-btn" onclick="filterPosts('racing')">🏁 Racing</button>
-            <button class="blog-filter-btn" onclick="filterPosts('vacations')">🏕️ Vacations & Camping</button>
+            <button class="blog-filter-btn" onclick="filterPosts('vacations')">🏕️ Vacations &amp; Camping</button>
         </div>
 
-        <!-- Blog Posts Grid -->
         <div class="blog-posts" id="blog-posts-grid">
-            <!-- Post 3: FSD V14 Lite -->
             <article class="blog-post-card" data-category="racing">
                 <div class="blog-post-header">
                     <h2>FSD V14 Lite on My 2022 Model 3</h2>
@@ -354,7 +244,6 @@
                 </div>
             </article>
 
-            <!-- Post 1: Rolex 24 at Daytona -->
             <article class="blog-post-card" data-category="racing">
                 <div class="blog-post-header">
                     <h2>My Rolex 24 at Daytona Experience</h2>
@@ -370,7 +259,6 @@
                 </div>
             </article>
 
-            <!-- Post 2: 12 Hours of Sebring 2026 -->
             <article class="blog-post-card" data-category="racing">
                 <div class="blog-post-header">
                     <h2>12 Hours of Sebring 2026</h2>
@@ -381,56 +269,43 @@
                     </div>
                 </div>
                 <div class="blog-post-excerpt">
-                    <p>Our Perfect Friday-to-Sunday Escape: Cooking, Camaraderie & the Epic 12 Hours of Sebring with My Fiancée. A full-on love letter to endurance racing, wild Florida sunsets, and the friendliest motorsport family on the planet.</p>
+                    <p>Our Perfect Friday-to-Sunday Escape: Cooking, Camaraderie &amp; the Epic 12 Hours of Sebring with My Fiancée. A full-on love letter to endurance racing, wild Florida sunsets, and the friendliest motorsport family on the planet.</p>
                     <button onclick="openBlogPost(2);" class="blog-read-more">Read Full Post →</button>
                 </div>
             </article>
         </div>
     </div>
 
-    <!-- Full Blog Post Display (Hidden by default) -->
     <div class="container" id="single-post-container" style="display: none;">
-        <button onclick="closeBlogPost()" style="background-color: #ff6666; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 20px; font-size: 1em;">← Back to Blog</button>
-        
-        <article class="blog-single" id="single-post-content">
-            <!-- Post content will be inserted here -->
-        </article>
+        <button onclick="closeBlogPost()" class="back-btn">← Back to Blog</button>
+        <article class="blog-single" id="single-post-content"></article>
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Me</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="services.html">Services</a>
-                    <a href="music.html">Music</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Me</h3>
-                <div class="footer-socials">
-                    <a href="https://www.twitch.tv/khaos_demon" title="Twitch">🎮</a>
-                    <a href="https://www.youtube.com/computerwiz/" title="YouTube">📺</a>
-                    <a href="https://soundcloud.com/djdarien" title="SoundCloud">🎵</a>
-                    <a href="https://github.com/djdarien" title="GitHub">💻</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Get Started</h3>
-                <p><strong>Let's work together!</strong></p>
-                <p><a href="services.html" style="color: #ff6666; text-decoration: none;">View My Services →</a></p>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2026 Darien Entwistle - All rights reserved. | <a href="https://dentwistle.online" style="color: #ff6666; text-decoration: none;">dentwistle.online</a></p>
-            </div>
-        </div>
-    </footer>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="music.html">Music</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.twitch.tv/khaos_demon" title="Twitch" target="_blank" rel="noopener">🎮</a>
+        <a href="https://www.youtube.com/computerwiz/" title="YouTube" target="_blank" rel="noopener">📺</a>
+        <a href="https://soundcloud.com/djdarien" title="SoundCloud" target="_blank" rel="noopener">🎵</a>
+        <a href="https://github.com/djdarien" title="GitHub" target="_blank" rel="noopener">💻</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Darien Entwistle · <a href="https://dentwistle.online">dentwistle.online</a></div>
+    </div>
+  </footer>
 
     <script>
-        // Blog posts data with structured content
+        const toggle = document.getElementById('navToggle');
+        const links = document.getElementById('navLinks');
+        if (toggle && links) toggle.addEventListener('click', () => links.classList.toggle('open'));
+
         const blogPosts = {
             2: {
                 title: "🏁 12 Hours of Sebring 2026 – Our Perfect Friday-to-Sunday Escape with My Fiancée",

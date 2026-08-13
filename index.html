@@ -1,320 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darien Entwistle`s Personal Site</title>
-    <style>
-        body {
-            background-image: url('sebring-dex.JPEG');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        nav {
-            background-color: #ff0000;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-            transition: box-shadow 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-        }
-        nav a:hover {
-            background-color: #555;
-            transform: scale(1.05);
-        }
-        .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        .welcome-section {
-            padding: 50px 0;
-        }
-        .welcome-text {
-            font-size: 1.5em;
-            line-height: 1.5;
-            background-color: rgba(255, 0, 0, 0.881);
-            border-radius: 20px;
-            padding: 20px;
-        }
-        .btn-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #ff6666;
-            color: #fff;
-            text-decoration: none;
-            padding: 15px 20px;
-            border-radius: 5px;
-            margin: 10px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            max-width: 250px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .btn:hover {
-            background-color: #cc0000;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 0, 0, 0.4);
-        }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 1000;
-        }
-        .popup p {
-            margin-bottom: 10px;
-        }
-        .popup-btn {
-            background-color: #ff6666;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 10px;
-            display: inline-block;
-        }
-        .popup-btn:hover {
-            background-color: #cc0000;
-        }
-        .btn img {
-            max-width: 100px;
-            height: auto;
-        }
-        .stats-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-            padding: 30px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-        }
-        .stat-box {
-            text-align: center;
-            background-color: rgba(255, 0, 0, 0.881);
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .stat-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(255, 0, 0, 0.5);
-        }
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #ffff99;
-            margin-bottom: 10px;
-        }
-        .stat-label {
-            font-size: 1em;
-            font-weight: bold;
-            color: #fff;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            border-top: 3px solid #ff0000;
-            padding: 40px 0 20px 0;
-            margin-top: 50px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-        footer .footer-content {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .footer-section {
-            margin-bottom: 20px;
-        }
-        .footer-section h3 {
-            color: #ff0000;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-        .footer-links a:hover {
-            color: #ff6666;
-            transform: scale(1.1);
-        }
-        .footer-socials {
-            margin: 15px 0;
-        }
-        .footer-socials a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: #ff0000;
-            color: #fff;
-            border-radius: 50%;
-            line-height: 40px;
-            text-align: center;
-            margin: 0 8px;
-            font-size: 1.3em;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-        }
-        .footer-socials a:hover {
-            background-color: #ff6666;
-            transform: scale(1.15) rotateZ(5deg);
-            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
-        }
-        .footer-copyright {
-            border-top: 1px solid #555;
-            margin-top: 20px;
-            padding-top: 20px;
-            color: #999;
-        }
-        @media (max-width: 768px) {
-            footer .footer-content {
-                padding: 0 15px;
-            }
-            .footer-links a {
-                display: block;
-                margin: 5px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darien Entwistle — Personal Site</title>
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="projects.html">Projects</a>
-        <a href="services.html">Services & Products</a>
-        <a href="music.html">My Music</a>
-        <a href="downloads.html">Downloads</a>
-        <a href="blog.html">Blog</a>
-        <a href="https://ev-expert-chat-701502515049.us-west1.run.app" target="_blank">EVy - EV Chat Assistant</a>
-        <a href="socialmedia.html">Social Media</a>
-    </nav>
-    <div class="container">
-        <div class="welcome-section">
-            <h1 id="welcome-heading">Welcome!</h1>
-            <script>
-                function getGreeting() {
-                    const now = new Date();
-                    const hour = now.getHours();
-                    if (hour >= 5 && hour < 12) return "Good morning";
-                    if (hour >= 12 && hour < 18) return "Good afternoon";
-                    if (hour >= 18 && hour < 22) return "Good evening";
-                    return "Welcome and good night";
-                }
-                document.addEventListener("DOMContentLoaded", function() {
-                    const heading = document.getElementById("welcome-heading");
-                    heading.textContent = getGreeting() + "!";
-                });
-            </script>
-            <div class="welcome-text">
-                <div id="visitor-info" style="margin-bottom: 20px; font-weight: bold;"></div>
-                <p>What is this all about?</p>
-                <p>First off, let me say thank you for visiting and second off welcome to my site!</p>
-                <p>This site was designed by me to show off, to allow me to share with others, and enjoy all of my various projects.</p>
-                <p>Some are old programming projects of fun attempts, others using Raspberry Pis, home servers, from arcade cabinets, to vintage Apple Macintoshes, and even a private AI chat ollama ChatGPT bot and much more!</p>
-                <p>Enjoy, now go exploring!</p>
-            </div>
-            <div class="stats-section">
-                <div class="stat-box">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Years in Tech</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">7+</div>
-                    <div class="stat-label">Fortune 500 IT</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Major Projects</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Client Satisfaction</div>
-                </div>
-            </div>
-            <div class="btn-container">
-                <a href="about.html" class="btn"><img src="about_me.jpeg" alt="All about me!" width="100" height="100"> About Me </a>
-                <a href="projects.html" class="btn"><img src="https://i0.wp.com/netlogx.com/wp-content/uploads/2019/09/Programs-Projects-and-Portfolios-Whats-the-Difference_FeaturedImage.jpg" alt="My project list page" width="100" height="100"> Projects</a>
-                <a href="https://ai.dentwistle.online/" class="btn"><img src="https://ociotec.com/wp-content/uploads/2024/01/ollama.png" alt="Private ChatGPT" width="100" height="100"> Private ChatGPT bot</a>
-                <a href="socialmedia.html" class="btn"><img src="https://www.moxeemarketing.com/wp-content/uploads/2022/12/Logos-for-a-wide-range-of-social-media-platforms.jpg" alt="Social Media page " width="100" height="100"> Social Media </a>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">dent<span>wistle</span>.online</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="socialmedia.html">Social</a></li>
+        <li><a href="https://ev-expert-chat-701502515049.us-west1.run.app" target="_blank" rel="noopener" class="external">EVy</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="text-center" style="padding: 2.5rem 0 1rem;">
+      <h1 class="page-title" id="welcome-heading">Welcome!</h1>
+      <div class="card" style="max-width: 720px; margin: 0 auto;">
+        <p class="lead" style="margin-top:0;">Thanks for stopping by.</p>
+        <p>This site is my digital playground — projects, games, tinkering, EV stuff, and whatever else I’m building.</p>
+        <p style="margin-bottom:0;">From Raspberry Pis and arcade cabinets to AI chats and vintage Macs. Explore and have fun.</p>
+      </div>
+    </section>
+
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years in Tech</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">7+</div>
+        <div class="stat-label">Fortune 500 IT</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Major Projects</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Good Vibes</div>
+      </div>
     </div>
 
-    <script>
-        // Fetch and display visitor public IP
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                const ip = data.ip;
-                const infoDiv = document.getElementById('visitor-info');
-                infoDiv.innerHTML = `Your public IP address is <span style="color: yellow;">${ip}</span>`;
-            })
-            .catch(error => {
-                console.error('Error fetching IP info:', error);
-            });
-    </script>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Me</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="services.html">Services</a>
-                    <a href="music.html">Music</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Me</h3>
-                <div class="footer-socials">
-                    <a href="https://www.twitch.tv/khaos_demon" title="Twitch">🎮</a>
-                    <a href="https://www.youtube.com/computerwiz/" title="YouTube">📺</a>
-                    <a href="https://soundcloud.com/djdarien" title="SoundCloud">🎵</a>
-                    <a href="https://github.com/djdarien" title="GitHub">💻</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Get Started</h3>
-                <p><strong>Let's work together!</strong></p>
-                <p><a href="services.html" style="color: #ff6666; text-decoration: none;">View My Services →</a></p>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2026 Darien Entwistle - All rights reserved. | <a href="https://dentwistle.online" style="color: #ff6666; text-decoration: none;">dentwistle.online</a></p>
-            </div>
+    <div class="grid-cards" style="margin-top: 2rem;">
+      <a href="about.html" class="project-card" style="text-decoration:none;color:inherit;">
+        <div class="project-card-icon">👋</div>
+        <div class="project-card-body">
+          <h3>About Me</h3>
+          <p>Career timeline, skills, and the stuff that keeps me curious.</p>
+          <span class="btn" style="align-self:flex-start;">View →</span>
         </div>
-    </footer>
+      </a>
+      <a href="projects.html" class="project-card" style="text-decoration:none;color:inherit;">
+        <div class="project-card-icon">🚀</div>
+        <div class="project-card-body">
+          <h3>Projects</h3>
+          <p>Games, apps, hardware builds, EV news, and more.</p>
+          <span class="btn" style="align-self:flex-start;">Explore →</span>
+        </div>
+      </a>
+      <a href="https://ai.dentwistle.online/" target="_blank" rel="noopener" class="project-card" style="text-decoration:none;color:inherit;">
+        <div class="project-card-icon">🤖</div>
+        <div class="project-card-body">
+          <h3>Private AI Chat</h3>
+          <p>Local Ollama-powered chat bot experiments.</p>
+          <span class="btn" style="align-self:flex-start;">Open →</span>
+        </div>
+      </a>
+      <a href="socialmedia.html" class="project-card" style="text-decoration:none;color:inherit;">
+        <div class="project-card-icon">📡</div>
+        <div class="project-card-body">
+          <h3>Social & Links</h3>
+          <p>Twitch, YouTube, GitHub, SoundCloud and more.</p>
+          <span class="btn" style="align-self:flex-start;">Connect →</span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="music.html">Music</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.twitch.tv/khaos_demon" title="Twitch" target="_blank" rel="noopener">🎮</a>
+        <a href="https://www.youtube.com/computerwiz/" title="YouTube" target="_blank" rel="noopener">📺</a>
+        <a href="https://soundcloud.com/djdarien" title="SoundCloud" target="_blank" rel="noopener">🎵</a>
+        <a href="https://github.com/djdarien" title="GitHub" target="_blank" rel="noopener">💻</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Darien Entwistle · <a href="https://dentwistle.online">dentwistle.online</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => links.classList.toggle('open'));
+    }
+    // Greeting
+    (function () {
+      const h = new Date().getHours();
+      let g = 'Welcome';
+      if (h >= 5 && h < 12) g = 'Good morning';
+      else if (h >= 12 && h < 18) g = 'Good afternoon';
+      else if (h >= 18 && h < 22) g = 'Good evening';
+      else g = 'Good night';
+      const el = document.getElementById('welcome-heading');
+      if (el) el.textContent = g + '!';
+    })();
+  </script>
 </body>
 </html>
