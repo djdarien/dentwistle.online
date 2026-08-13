@@ -1,169 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Links</title>
-    <style>
-        body {
-            background-image: url('https://hips.hearstapps.com/hmg-prod/images/michael-schumacher-of-germany-racing-for-ferrari-during-the-news-photo-1646420952.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
-        nav {
-            background-color: #ff0000; /* Red color for navigation bar */
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-        }
-        nav a:hover {
-            background-color: #555;
-        }
-        .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        .social-links {
-            list-style-type: none;
-            padding: 0;
-        }
-        .social-links li {
-            margin-bottom: 10px;
-        }
-        .social-links li a {
-            display: inline-block;
-            background-color: #fff;
-            color: #ff0000;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .social-links li a:hover {
-            background-color: #ddd;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            border-top: 3px solid #ff0000;
-            padding: 40px 0 20px 0;
-            margin-top: 50px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-        footer .footer-content {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .footer-section {
-            margin-bottom: 20px;
-        }
-        .footer-section h3 {
-            color: #ff0000;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        .footer-links a:hover {
-            color: #ff6666;
-        }
-        .footer-socials {
-            margin: 15px 0;
-        }
-        .footer-socials a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: #ff0000;
-            color: #fff;
-            border-radius: 50%;
-            line-height: 40px;
-            text-align: center;
-            margin: 0 8px;
-            font-size: 1.3em;
-            transition: background-color 0.3s ease;
-        }
-        .footer-socials a:hover {
-            background-color: #ff6666;
-        }
-        .footer-copyright {
-            border-top: 1px solid #555;
-            margin-top: 20px;
-            padding-top: 20px;
-            color: #999;
-        }
-        @media (max-width: 768px) {
-            .footer-links a {
-                display: block;
-                margin: 5px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social — Darien Entwistle</title>
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="projects.html">Projects</a>
-        <a href="services.html">Services & Products</a>
-        <a href="music.html">My Music</a>
-        <a href="downloads.html">Downloads</a>
-        <a href="blog.html">Blog</a>
-        <a href="https://ev-expert-chat-701502515049.us-west1.run.app" target="_blank">EVy - EV Chat Assistant</a>
-        <a href="socialmedia.html">Social Media</a>
-    </nav>
-    <div class="container">
-        <h1>Social Media Links</h1>
-        <ul class="social-links">
-              <li><a href="https://www.twitch.tv/khaos_demon">My Twitch Channel</a></li>
-            <li><a href="https://www.youtube.com/computerwiz/">My YouTube Channel</a></li>
-        </ul>
-        <iframe src="https://www.youtube.com/embed/?listType=user_uploads&list=computerwiz" width="480" height="400"></iframe>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">dent<span>wistle</span>.online</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="socialmedia.html" class="active">Social</a></li>
+        <li><a href="https://ev-expert-chat-701502515049.us-west1.run.app" target="_blank" rel="noopener" class="external">EVy</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Social <span>&amp; Links</span></h1>
+    <p class="text-center lead mb-2">Find me around the web.</p>
+
+    <div class="grid-cards">
+      <a href="https://www.twitch.tv/khaos_demon" target="_blank" rel="noopener" class="project-card" style="text-decoration:none;color:inherit;">
+        <div class="project-card-icon">🎮</div>
+        <div class="project-card-body">
+          <h3>Twitch</h3>
+          <p>Live streams and gaming.</p>
+          <span class="btn">Watch →</span>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/computerwiz/" target="_blank" rel="noopener" class="project-card" style="text-decoration:none;color:inherit;">
+        <div class="project-card-icon">📺</div>
+        <div class="project-card-body">
+          <h3>YouTube</h3>
+          <p>Videos, tech, and more.</p>
+          <span class="btn">Subscribe →</span>
+        </div>
+      </a>
+      <a href="https://soundcloud.com/djdarien" target="_blank" rel="noopener" class="project-card" style="text-decoration:none;color:inherit;">
+        <div class="project-card-icon">🎵</div>
+        <div class="project-card-body">
+          <h3>SoundCloud</h3>
+          <p>Remixes and original tracks.</p>
+          <span class="btn">Listen →</span>
+        </div>
+      </a>
+      <a href="https://github.com/djdarien" target="_blank" rel="noopener" class="project-card" style="text-decoration:none;color:inherit;">
+        <div class="project-card-icon">💻</div>
+        <div class="project-card-body">
+          <h3>GitHub</h3>
+          <p>Code, projects, and open source.</p>
+          <span class="btn">Code →</span>
+        </div>
+      </a>
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Me</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="services.html">Services</a>
-                    <a href="music.html">Music</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Me</h3>
-                <div class="footer-socials">
-                    <a href="https://www.twitch.tv/khaos_demon" title="Twitch">🎮</a>
-                    <a href="https://www.youtube.com/computerwiz/" title="YouTube">📺</a>
-                    <a href="https://soundcloud.com/djdarien" title="SoundCloud">🎵</a>
-                    <a href="https://github.com/djdarien" title="GitHub">💻</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Get Started</h3>
-                <p><strong>Let's work together!</strong></p>
-                <p><a href="services.html" style="color: #ff6666; text-decoration: none;">View My Services →</a></p>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2026 Darien Entwistle - All rights reserved. | <a href="https://dentwistle.online" style="color: #ff6666; text-decoration: none;">dentwistle.online</a></p>
-            </div>
-        </div>
-    </footer>
+    <div class="card text-center" style="margin-top:2rem;">
+      <h2 style="margin-top:0;">YouTube uploads</h2>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
+        <iframe src="https://www.youtube.com/embed/?listType=user_uploads&list=computerwiz" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="music.html">Music</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.twitch.tv/khaos_demon" title="Twitch" target="_blank" rel="noopener">🎮</a>
+        <a href="https://www.youtube.com/computerwiz/" title="YouTube" target="_blank" rel="noopener">📺</a>
+        <a href="https://soundcloud.com/djdarien" title="SoundCloud" target="_blank" rel="noopener">🎵</a>
+        <a href="https://github.com/djdarien" title="GitHub" target="_blank" rel="noopener">💻</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Darien Entwistle · <a href="https://dentwistle.online">dentwistle.online</a></div>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    if (toggle && links) toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
 </body>
 </html>
