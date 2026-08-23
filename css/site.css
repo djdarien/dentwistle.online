@@ -102,10 +102,11 @@ body {
 .nav-links a {
   color: var(--text);
   text-decoration: none;
-  padding: 0.5rem 0.85rem;
+  padding: 0.5rem 0.7rem;
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
+  white-space: nowrap;
   transition: background 0.2s, color 0.2s, transform 0.15s;
 }
 
@@ -123,7 +124,7 @@ body {
 }
 
 /* Mobile nav */
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .nav-toggle { display: flex; align-items: center; justify-content: center; }
   .nav-links {
     display: none;
