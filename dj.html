@@ -35,7 +35,7 @@
         <h1>Sound. Lights. <span style="color:var(--red);">Vibes.</span></h1>
         <p class="lead">I’m DJ Darien — professional DJ & MC for weddings, parties, and corporate events. Premium gear, custom playlists, and lighting that makes the night unforgettable.</p>
         <div class="cta-row">
-          <a class="btn" href="https://calendly.com/dj-sarasota" target="_blank" rel="noopener">Check Availability</a>
+          <a class="btn" href="#book">Check Availability</a>
           <a class="btn btn-outline" href="#contact">Request a Quote</a>
           <a class="btn btn-outline" href="tel:+19414048345">📞 (941) 404-8345</a>
         </div>
@@ -189,8 +189,8 @@
     </div>
 
     <div class="section-head" id="contact">
-      <h2>Request a quote</h2>
-      <p>Tell me about the event. I’ll reply within one business day.</p>
+      <h2>Book a time or request a quote</h2>
+      <p>Use the calendar to lock a consult, or send the form if you just need pricing. I’ll reply within one business day.</p>
     </div>
     <section class="contact-grid">
       <form class="card dj-form" action="https://formsubmit.co/dj@sarasotacomputersolutions.com" method="POST">
@@ -239,15 +239,20 @@
         </div>
       </form>
 
-      <aside>
-        <div class="card">
+      <aside class="book-col" id="book">
+        <div class="card calendly-card">
+          <h3 style="margin-top:0;">Check availability</h3>
+          <p style="color:var(--text-muted);margin:0 0 0.75rem;">Pick a consult time. Confirmation goes to your email.</p>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/dj-sarasota?hide_gdpr_banner=1&amp;background_color=0b1420&amp;text_color=f1f5f9&amp;primary_color=e63946" style="min-width:280px;height:700px;"></div>
+        </div>
+        <div class="card" style="margin-top:1rem;">
           <h3 style="margin-top:0;">Quick info</h3>
           <p style="color:var(--text-muted);margin:0 0 0.75rem;">Insured · Professional gear · Backup equipment · Timely setup</p>
           <p style="color:var(--text-muted);margin:0 0 1rem;">
             <strong style="color:#fff;">Email:</strong> <a href="mailto:dj@sarasotacomputersolutions.com" style="color:var(--red-soft);">dj@sarasotacomputersolutions.com</a><br>
             <strong style="color:#fff;">Phone:</strong> <a href="tel:+19414048345" style="color:var(--red-soft);">(941) 404-8345</a>
           </p>
-          <a class="btn" href="https://calendly.com/dj-sarasota" target="_blank" rel="noopener">Book time</a>
+          <a class="btn btn-outline" href="https://calendly.com/dj-sarasota" target="_blank" rel="noopener">Open calendar in a new tab</a>
         </div>
         <p style="color:var(--text-muted);font-size:0.88rem;margin:0.9rem 0 0;">Weddings can include a contract and full timeline coordination — just ask.</p>
       </aside>
@@ -277,6 +282,7 @@
     </div>
   </footer>
 
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script>
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
