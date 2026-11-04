@@ -24,7 +24,6 @@ jobs:
             './**/*.html'
             './**/*.md'
             './**/*.sh'
-            --exclude-mail
             --max-retries 3
             --accept 200,429
           # output: lychee-report.md
