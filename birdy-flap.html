@@ -1,291 +1,385 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Birdy Flap</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birdy Flap — Darien Entwistle</title>
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .game-wrap { max-width: 420px; margin: 0 auto; }
+    .game-frame {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0,0,0,.28);
+      line-height: 0;
+    }
+    #birdyCanvas { width: 100%; height: auto; display: block; touch-action: none; cursor: pointer; background: #70c5ce; }
+    .game-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: .75rem; margin-top: .9rem; flex-wrap: wrap;
+    }
+    .game-score { font-size: 1.05rem; }
+    .game-score strong { font-size: 1.25rem; }
+    .game-btns { display: flex; gap: .5rem; }
+    .game-note { text-align: center; opacity: .85; margin-top: .6rem; font-size: .95rem; }
+    .game-info { max-width: 640px; margin: 2rem auto 0; text-align: left; }
+    .game-info p { margin-bottom: .8rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">dent<span>wistle</span>.online</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="dj.html">DJ Services</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="socialmedia.html">Social</a></li>
+        <li><a href="https://ev-expert-chat-701502515049.us-west1.run.app" target="_blank" rel="noopener" class="external">EVy</a></li>
+      </ul>
+    </div>
+  </header>
 
+  <main class="container">
+    <h1 class="page-title">Birdy <span>Flap</span></h1>
+    <p class="text-center lead" style="margin-bottom:1.5rem;">The 2014 Game Factory classic, rebuilt for the modern web. No plugins — just flap.</p>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <div class="game-wrap">
+      <div class="game-frame">
+        <canvas id="birdyCanvas" width="420" height="640" aria-label="Birdy Flap game"></canvas>
+      </div>
+      <div class="game-bar">
+        <div class="game-score">Score <strong id="scoreNow">0</strong> &nbsp;·&nbsp; Best <strong id="scoreBest">0</strong></div>
+        <div class="game-btns">
+          <button class="btn" id="btnRestart" type="button">Restart</button>
+          <button class="btn" id="btnSound" type="button">Sound: On</button>
+        </div>
+      </div>
+      <p class="game-note">Click, tap, or press <strong>Space</strong> / <strong>↑</strong> to flap. Fly through the pipes — don't clip one!</p>
+    </div>
 
-		<meta name="google-site-verification" content="IEoIaLWPXABqEX-0LZ2TcAKu_ezsYhcsMHlge_IpLks" />
+    <div class="game-info">
+      <p><strong>Game Description:</strong> "Birdy Flap" was designed and created as a technical demo to highlight what games might be created at Net Byte's <a href="game-factory.html">"Game Factory"</a>. It's a simple clone of the popular, addicting game "Flappy Bird". The objective is to successfully jump the bird through each column without hitting them — or it's game over!</p>
+      <p><strong>Platform Availability:</strong> Any modern web browser (Chrome, Firefox, Safari, Edge) — desktop and mobile. No plugins required.</p>
+      <p><strong>Game Engine:</strong> HTML5 Canvas + JavaScript (2026 remake). The original was built in Unity 4.6 and needed the Unity Web Player plugin, which browsers stopped supporting years ago — so the game has been rebuilt from scratch to keep it playable.</p>
+      <p><strong>Game Modes:</strong> Single-player only &nbsp;·&nbsp; <strong>Genre:</strong> Arcade / Adventure</p>
+      <p><strong>Original Release Date:</strong> 12/30/2014 &nbsp;·&nbsp; <strong>Price:</strong> FREE!</p>
+      <p style="margin-top:1.2rem;"><a href="projects.html" class="btn">← Back to Projects</a></p>
+    </div>
+  </main>
 
-<meta name="msvalidate.01" content="990290DD4ACADD1E6A59958956193B1D" />
-		<link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/sites.css?buildTime=1234" />
-<link rel="stylesheet" type="text/css" href="http://cdn1.editmysite.com/editor/libraries/fancybox/fancybox.css?1234" />
-<link rel="stylesheet" type="text/css" href="files/main_style.css?1448685985" title="wsite-theme-css" />
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="music.html">Music</a>
+        <a href="dj.html">DJ Services</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.twitch.tv/khaos_demon" title="Twitch" target="_blank" rel="noopener">🎮</a>
+        <a href="https://www.youtube.com/computerwiz/" title="YouTube" target="_blank" rel="noopener">📺</a>
+        <a href="https://soundcloud.com/djdarien" title="SoundCloud" target="_blank" rel="noopener">🎵</a>
+        <a href="https://github.com/djdarien" title="GitHub" target="_blank" rel="noopener">💻</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Darien Entwistle · <a href="https://dentwistle.online">dentwistle.online</a>
+      </div>
+    </div>
+  </footer>
 
-<link href='http://cdn1.editmysite.com/editor/fonts/Aller/font.css?2' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Actor&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<style type='text/css'>
-.wsite-elements.wsite-not-footer div.paragraph, .wsite-elements.wsite-not-footer p, .wsite-elements.wsite-not-footer .product-block .product-title, .wsite-elements.wsite-not-footer .product-description, .wsite-elements.wsite-not-footer .wsite-form-field label, .wsite-elements.wsite-not-footer .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {font-family:"Aller" !important;}
-#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
-.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
-.wsite-elements.wsite-not-footer h2, .wsite-elements.wsite-not-footer .product-long .product-title, .wsite-elements.wsite-not-footer .product-large .product-title, .wsite-elements.wsite-not-footer .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {font-family:"Actor" !important;}
-#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
-.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
-#wsite-title {}
-.wsite-menu-default a {}
-.wsite-menu a {}
-.wsite-image div, .wsite-caption {}
-.galleryCaptionInnerText {}
-.fancybox-title {}
-.wslide-caption-text {}
-.wsite-phone {}
-.wsite-headline {}
-.wsite-headline-paragraph {}
-.wsite-button-inner {}
-.wsite-not-footer blockquote {}
-.wsite-footer blockquote {}
-.blog-header h2 a {}
-#wsite-content h2.wsite-product-title {}
-.wsite-product .wsite-product-price a {}
-</style>
-<style>
-.wsite-background {background-image: none !important;background-repeat: no-repeat !important;background-position: 50% 50% !important;background-size: 100% !important;background-color: transparent !important;background: inherit;}
-body.wsite-background {background-attachment: fixed !important;}.wsite-background.wsite-custom-background{ background-size: cover !important}
-</style>
-		<script><!--
-var STATIC_BASE = '//cdn1.editmysite.com/';
-var STYLE_PREFIX = 'wsite';
-//-->
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    if (toggle && links) toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+
+<script>
+(() => {
+  const canvas = document.getElementById('birdyCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const GROUND_H = 64, PLAY_H = H - GROUND_H;
+
+  const elNow = document.getElementById('scoreNow');
+  const elBest = document.getElementById('scoreBest');
+  const btnRestart = document.getElementById('btnRestart');
+  const btnSound = document.getElementById('btnSound');
+
+  // ---------- tuning ----------
+  const GRAVITY = 1500, FLAP_VY = -445, MAX_FALL = 730;
+  const PIPE_W = 70, PIPE_GAP = 152, PIPE_SPEED = 168, PIPE_SPACING = 252;
+  const BIRD_X = 92, BIRD_R = 14;
+
+  // ---------- state ----------
+  let state = 'ready'; // ready | playing | over
+  let bird, pipes, score, best, distSincePipe, groundX, cloudX, tGlobal, overAt;
+  best = parseInt(localStorage.getItem('birdyFlapBest') || '0', 10) || 0;
+  elBest.textContent = best;
+
+  function reset() {
+    bird = { y: PLAY_H / 2, vy: 0, rot: 0, wing: 0 };
+    pipes = [];
+    score = 0;
+    distSincePipe = 0;
+    overAt = 0;
+    elNow.textContent = '0';
+  }
+  reset();
+
+  // ---------- sound (tiny WebAudio blips) ----------
+  let audioCtx = null, soundOn = true;
+  function beep(freq, dur, type, vol, slideTo) {
+    if (!soundOn) return;
+    try {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = type || 'square';
+      o.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, audioCtx.currentTime + dur);
+      g.gain.setValueAtTime(vol || 0.05, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + dur);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(); o.stop(audioCtx.currentTime + dur);
+    } catch (e) { /* audio unavailable — stay silent */ }
+  }
+  const sfxFlap  = () => beep(520, 0.09, 'square', 0.04, 880);
+  const sfxPoint = () => { beep(880, 0.07, 'sine', 0.06); setTimeout(() => beep(1320, 0.1, 'sine', 0.06), 60); };
+  const sfxHit   = () => beep(220, 0.25, 'sawtooth', 0.07, 55);
+
+  // ---------- input ----------
+  function flap() {
+    if (state === 'ready') { state = 'playing'; bird.vy = FLAP_VY; sfxFlap(); }
+    else if (state === 'playing') { bird.vy = FLAP_VY; sfxFlap(); }
+    else if (state === 'over' && performance.now() - overAt > 450) { reset(); state = 'ready'; }
+  }
+  canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); flap(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space' || e.code === 'ArrowUp') {
+      const tag = (document.activeElement && document.activeElement.tagName) || '';
+      if (tag === 'BUTTON') document.activeElement.blur();
+      e.preventDefault(); flap();
+    }
+  });
+  btnRestart.addEventListener('click', () => { reset(); state = 'ready'; canvas.focus && canvas.focus(); });
+  btnSound.addEventListener('click', () => {
+    soundOn = !soundOn;
+    btnSound.textContent = soundOn ? 'Sound: On' : 'Sound: Off';
+  });
+
+  // ---------- helpers ----------
+  function spawnPipe() {
+    const margin = 52;
+    const gapY = margin + Math.random() * (PLAY_H - PIPE_GAP - margin * 2) + PIPE_GAP / 2;
+    pipes.push({ x: W + 10, gapY, scored: false });
+  }
+  function circleRectHit(cx, cy, r, rx, ry, rw, rh) {
+    const nx = Math.max(rx, Math.min(cx, rx + rw));
+    const ny = Math.max(ry, Math.min(cy, ry + rh));
+    const dx = cx - nx, dy = cy - ny;
+    return dx * dx + dy * dy < r * r;
+  }
+  function gameOver() {
+    state = 'over';
+    overAt = performance.now();
+    sfxHit();
+    if (score > best) {
+      best = score;
+      localStorage.setItem('birdyFlapBest', String(best));
+      elBest.textContent = best;
+    }
+  }
+
+  // ---------- update ----------
+  function update(dt) {
+    tGlobal += dt;
+    groundX = (groundX + PIPE_SPEED * dt) % 48;
+    cloudX = (cloudX + 18 * dt) % (W + 160);
+
+    if (state === 'ready') {
+      bird.y = PLAY_H / 2 + Math.sin(tGlobal * 3.2) * 9;
+      bird.rot = Math.sin(tGlobal * 3.2 + 0.6) * 0.08;
+      bird.wing += dt * 6;
+      return;
+    }
+    if (state !== 'playing') return;
+
+    bird.vy = Math.min(bird.vy + GRAVITY * dt, MAX_FALL);
+    bird.y += bird.vy * dt;
+    bird.wing += dt * (bird.vy < 0 ? 22 : 7);
+    bird.rot = bird.vy < 0 ? -0.32 : Math.min(1.15, bird.rot + dt * 3.4);
+
+    distSincePipe += PIPE_SPEED * dt;
+    if (distSincePipe >= PIPE_SPACING) { distSincePipe = 0; spawnPipe(); }
+
+    for (const p of pipes) {
+      p.x -= PIPE_SPEED * dt;
+      if (!p.scored && p.x + PIPE_W < BIRD_X - BIRD_R) {
+        p.scored = true; score++; elNow.textContent = score; sfxPoint();
+      }
+      const topH = p.gapY - PIPE_GAP / 2, botY = p.gapY + PIPE_GAP / 2;
+      if (circleRectHit(BIRD_X, bird.y, BIRD_R - 1, p.x, 0, PIPE_W, topH) ||
+          circleRectHit(BIRD_X, bird.y, BIRD_R - 1, p.x, botY, PIPE_W, PLAY_H - botY)) {
+        gameOver(); return;
+      }
+    }
+    pipes = pipes.filter(p => p.x + PIPE_W > -12);
+
+    if (bird.y + BIRD_R >= PLAY_H) { bird.y = PLAY_H - BIRD_R; gameOver(); }
+    if (bird.y - BIRD_R <= 0) { bird.y = BIRD_R; bird.vy = Math.max(bird.vy, 0); }
+  }
+
+  // ---------- draw ----------
+  function drawPipe(x, y, h, isTop) {
+    if (h <= 0) return;
+    const capH = 26, capOver = 4;
+    const grad = ctx.createLinearGradient(x, 0, x + PIPE_W, 0);
+    grad.addColorStop(0, '#5da324'); grad.addColorStop(0.18, '#7ec93a');
+    grad.addColorStop(0.5, '#8fd84a'); grad.addColorStop(1, '#4c8a1d');
+    ctx.fillStyle = grad;
+    ctx.fillRect(x, y, PIPE_W, h);
+    ctx.strokeStyle = 'rgba(30,70,10,.55)'; ctx.lineWidth = 2;
+    ctx.strokeRect(x + 1, y - 2, PIPE_W - 2, h + 4);
+    ctx.fillStyle = grad;
+    const capY = isTop ? y + h - capH : y;
+    ctx.fillRect(x - capOver, capY, PIPE_W + capOver * 2, capH);
+    ctx.strokeRect(x - capOver + 1, capY + 1, PIPE_W + capOver * 2 - 2, capH - 2);
+  }
+  function drawBird() {
+    ctx.save();
+    ctx.translate(BIRD_X, bird.y);
+    ctx.rotate(bird.rot);
+    // tail
+    ctx.fillStyle = '#f39c12';
+    ctx.beginPath(); ctx.moveTo(-12, 0); ctx.lineTo(-20, -5); ctx.lineTo(-19, 4); ctx.closePath(); ctx.fill();
+    // body
+    const g = ctx.createRadialGradient(-4, -6, 3, 0, 0, 17);
+    g.addColorStop(0, '#ffe066'); g.addColorStop(1, '#ffcf3f');
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(0, 0, BIRD_R + 1, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = 'rgba(160,110,0,.35)'; ctx.lineWidth = 1.5; ctx.stroke();
+    // belly
+    ctx.fillStyle = '#fff3c4';
+    ctx.beginPath(); ctx.ellipse(3, 6, 7.5, 5, 0, 0, Math.PI * 2); ctx.fill();
+    // wing
+    const wob = Math.sin(bird.wing) * 4;
+    ctx.fillStyle = '#ffb703';
+    ctx.beginPath(); ctx.ellipse(-4, 1 + wob * 0.4, 8, 5, -0.5 + wob * 0.03, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = 'rgba(160,110,0,.3)'; ctx.stroke();
+    // eye
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.arc(6, -5, 5, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#222';
+    ctx.beginPath(); ctx.arc(7.5, -5, 2.6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.arc(8.4, -5.9, 1, 0, Math.PI * 2); ctx.fill();
+    // beak
+    ctx.fillStyle = '#fb8500';
+    ctx.beginPath(); ctx.moveTo(11, -2); ctx.lineTo(20, 0.5); ctx.lineTo(11, 3.5); ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+  function bigText(txt, y, size, color) {
+    ctx.font = 'bold ' + size + 'px Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.lineWidth = Math.max(3, size / 7);
+    ctx.strokeStyle = 'rgba(0,0,0,.45)';
+    ctx.strokeText(txt, W / 2, y);
+    ctx.fillStyle = color || '#fff';
+    ctx.fillText(txt, W / 2, y);
+  }
+  function draw() {
+    // sky
+    const sky = ctx.createLinearGradient(0, 0, 0, PLAY_H);
+    sky.addColorStop(0, '#6ec6d8'); sky.addColorStop(1, '#c9f2f7');
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, W, PLAY_H);
+    // clouds (parallax)
+    ctx.fillStyle = 'rgba(255,255,255,.85)';
+    for (let i = 0; i < 5; i++) {
+      const cx = ((i * 173 + 60 - cloudX) % (W + 160) + (W + 160)) % (W + 160) - 80;
+      const cy = 46 + (i % 3) * 52;
+      ctx.beginPath();
+      ctx.arc(cx, cy, 15, 0, Math.PI * 2);
+      ctx.arc(cx + 16, cy + 3, 11, 0, Math.PI * 2);
+      ctx.arc(cx - 16, cy + 4, 10, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    // hills
+    ctx.fillStyle = '#a8dba8';
+    ctx.beginPath();
+    ctx.ellipse(W * 0.22, PLAY_H + 26, 150, 52, 0, Math.PI, Math.PI * 2);
+    ctx.ellipse(W * 0.82, PLAY_H + 30, 180, 60, 0, Math.PI, Math.PI * 2);
+    ctx.fill();
+    // pipes
+    for (const p of pipes) {
+      drawPipe(p.x, 0, p.gapY - PIPE_GAP / 2, true);
+      drawPipe(p.x, p.gapY + PIPE_GAP / 2, PLAY_H - (p.gapY + PIPE_GAP / 2), false);
+    }
+    // ground
+    ctx.fillStyle = '#ded895'; ctx.fillRect(0, PLAY_H, W, GROUND_H);
+    ctx.fillStyle = '#7ec93a'; ctx.fillRect(0, PLAY_H, W, 14);
+    ctx.fillStyle = 'rgba(0,0,0,.12)';
+    for (let x = -groundX; x < W; x += 48) {
+      ctx.beginPath();
+      ctx.moveTo(x + 22, PLAY_H + 20); ctx.lineTo(x + 40, PLAY_H + 20);
+      ctx.lineTo(x + 30, PLAY_H + GROUND_H); ctx.lineTo(x + 12, PLAY_H + GROUND_H);
+      ctx.closePath(); ctx.fill();
+    }
+    ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.fillRect(0, PLAY_H, W, 3);
+
+    drawBird();
+
+    // HUD / overlays
+    if (state === 'playing') bigText(String(score), 74, 44);
+    if (state === 'ready') {
+      bigText('BIRDY FLAP', 150, 40, '#ffd93b');
+      bigText('Click, tap, or press Space', 330, 21);
+      bigText('to flap!', 358, 21);
+      // pulsing hint ring around bird
+      ctx.strokeStyle = 'rgba(255,255,255,' + (0.45 + Math.sin(tGlobal * 4) * 0.25) + ')';
+      ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(BIRD_X, bird.y, 26, 0, Math.PI * 2); ctx.stroke();
+    }
+    if (state === 'over') {
+      ctx.fillStyle = 'rgba(0,0,0,.38)'; ctx.fillRect(0, 0, W, PLAY_H);
+      const pw = 264, ph = 176, px = (W - pw) / 2, py = 168;
+      ctx.fillStyle = '#fef3c7';
+      ctx.beginPath(); ctx.roundRect(px, py, pw, ph, 14); ctx.fill();
+      ctx.strokeStyle = '#d97706'; ctx.lineWidth = 3; ctx.stroke();
+      ctx.fillStyle = '#92400e'; ctx.textAlign = 'center';
+      ctx.font = 'bold 30px Arial, sans-serif';
+      ctx.fillText('GAME OVER', W / 2, py + 46);
+      ctx.font = 'bold 21px Arial, sans-serif'; ctx.fillStyle = '#333';
+      ctx.fillText('Score: ' + score, W / 2, py + 92);
+      ctx.fillText('Best:  ' + best, W / 2, py + 124);
+      ctx.font = '16px Arial, sans-serif'; ctx.fillStyle = '#666';
+      ctx.fillText('Click or press Space to play again', W / 2, py + 154);
+      bigText(String(score), 74, 44);
+    }
+  }
+
+  // ---------- main loop ----------
+  let lastTs = performance.now();
+  tGlobal = 0; groundX = 0; cloudX = 0;
+  function frame(ts) {
+    let dt = (ts - lastTs) / 1000;
+    lastTs = ts;
+    if (dt > 0.033) dt = 0.033; // clamp tab-switch jumps
+    update(dt);
+    draw();
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
 </script>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
-
-<script src="http://cdn2.editmysite.com/js/site/main.js?buildTime=1234"></script><script type="text/javascript">_W.configDomain = "www.weebly.com";</script><script type="text/javascript" src="http://cdn2.editmysite.com/js/lang/en/ftl.js?buildTime=1234"></script><script>_W.relinquish && _W.relinquish()</script>
-<script type="text/javascript"><!--
-	var IS_ARCHIVE = 1;
-	var DISABLE_NAV_MORE = 1;
-	(function(jQuery){
-		function initFlyouts(){
-			initPublishedFlyoutMenus(
-				[{"id":"277217778706435981","title":"Home","url":"index.html","target":""},{"id":"365659956283072727","title":"About Us","url":"about.html","target":""},{"id":"104546039276144512","title":"Products","url":"projects.html","target":""},{"id":"435658241883861703","title":"Game Factory","url":"game-factory.html","target":""},{"id":"168302231110899562","title":"Contact Us","url":"socialmedia.html","target":""}],
-				"215475594581122034",
-				'',
-				'active',
-				false,
-				{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-item-wrap\"\n\t>\n\t<a href=\"{{url}}\"\n\t\t{{#target}}target=\"{{target}}\"{{\/target}}\n\t\tclass=\"wsite-menu-item\"\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a href=\"{{url}}\"\n\t\t{{#target}}target=\"{{target}}\"{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
-				{}
-			)
-		}
-		if (jQuery) {
-			jQuery(document).ready(function() { jQuery(initFlyouts); });
-		}else{
-			if (Prototype.Browser.IE) window.onload = initFlyouts;
-			else document.observe('dom:loaded', initFlyouts);
-		}
-	})(window._W && _W.jQuery)
-//-->
-</script>
-		
-	</head>
-	<body class="wsite-theme-light no-header-page  wsite-page-birdy-flap">
-	<div style="background-color: #ff0000; color: #fff; text-align: center; padding: 10px 0; display: flex; justify-content: center; flex-wrap: wrap;">
-		<a href="index.html" style="color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s ease;">Home</a>
-		<a href="about.html" style="color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s ease;">About Me</a>
-		<a href="projects.html" style="color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s ease;">Projects</a>
-		<a href="music.html" style="color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s ease;">My Music</a>
-		<a href="downloads.html" style="color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s ease;">Downloads</a>
-		<a href="blog.html" style="color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s ease;">Blog</a>
-		<a href="https://ev-expert-chat-701502515049.us-west1.run.app" target="_blank" style="color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s ease;">EVy - EV Chat Assistant</a>
-		<a href="socialmedia.html" style="color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s ease;">Social Media</a>
-	</div><div id="header-wrap">
-	<div id="header-top">
-		<table id="header">
-			<tr>
-				<td id="logo"><span class="wsite-logo">
-
-	<a href="">
-	
-	<span id="wsite-title">Darien Entwsitle Productions</span>
-	
-	</a>
-
-</span></td>
-				
-
-							<td class="social"><div style="text-align:left;"><div style="height:0px;overflow:hidden"></div>
-<span class="wsite-social wsite-social-default"><a class='first-child wsite-social-item wsite-social-mail' href='mailto:admin@djershome.net' target='_blank'><span class='wsite-social-item-inner'></span></a><a class='wsite-social-item wsite-social-facebook' href='http://facebook.com/netbyteservers' target='_blank'><span class='wsite-social-item-inner'></span></a><a class='last-child wsite-social-item wsite-social-twitter' href='http://twitter.com/NetByteServers' target='_blank'><span class='wsite-social-item-inner'></span></a></span>
-<div style="height:0px;overflow:hidden"></div></div></td>
-							<td class="search"></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-	</div>
-</div>
-<div id="navigation-wrap">
-	<div id="navigation">
-		<ul class="wsite-menu-default">
-				<li id="pg277217778706435981"
-					class="wsite-menu-item-wrap"
-					>
-					<a href="index.html"
-						
-						class="wsite-menu-item"
-						>
-						Home
-					</a>
-					
-				</li>
-				
-				<li id="pg104546039276144512"
-					class="wsite-menu-item-wrap"
-					>
-					<a href="projects.html"
-						
-						class="wsite-menu-item"
-						>
-						Products
-					</a>
-					
-				</li>
-				<li id="pg435658241883861703"
-					class="wsite-menu-item-wrap"
-					>
-					<a href="game-factory.html"
-						
-						class="wsite-menu-item"
-						>
-						Game Factory
-					</a>
-					<div class="wsite-menu-wrap" style="display:none">
-	<ul class="wsite-menu">
-		<li id="wsite-nav-267535144405646791"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a href="adventures-of-ollie-the-ball-the-lost-coin-hunt.html"
-		
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Adventures of Ollie the Ball: The Lost Coin Hunt
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-215475594581122034"
-	class="wsite-menu-subitem-wrap wsite-nav-current"
-	>
-	<a href="birdy-flap.html"
-		
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Birdy Flap
-		</span>
-	</a>
-	
-</li>
-
-	</ul>
-</div>
-
-				</li>
-				<li id="pg168302231110899562"
-					class="wsite-menu-item-wrap"
-					>
-					<a href="socialmedia.html"
-						
-						class="wsite-menu-item"
-						>
-						Contact Us
-					</a>
-					
-				
-<div id="main-wrap">
-	<div id="main">
-		<div id="content">
-			<div id='wsite-content' class='wsite-elements wsite-not-footer'>
-<div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
-<a>
-<img src="uploads/8/2/4/8/8248709/6917656.jpg?443" alt="Picture" style="width:443;max-width:100%" />
-</a>
-<div style="display:block;font-size:90%"></div>
-</div></div>
-
-<div class="paragraph" style="text-align:left;"><font size="3"><strong>Game Description:&nbsp;</strong>Our game "Birdy Flap" was &nbsp;designed&nbsp;and created as a technical demo to highlight what games might be created at Net Byte's "Game Factory". This is a simple clone of the popular&nbsp;addicting&nbsp;game "Flappy Bird". The objective of the game is successfully jump the bird through each&nbsp;column&nbsp;without hitting them or its game over!<br /><br /><br /><br /><strong>Platform Availability:&nbsp;</strong>Android &amp; Any web browser (IE, Chrome,Firefox, Safari) (*Requires Unity Web Player Plugin to play)<br /><strong>Game Engine:</strong>&nbsp;Unity 4.6<br /><strong>Game Modes:&nbsp;</strong>Single-player Only<br /><strong>Genre:&nbsp;</strong>Arcade / Adventure<br /><strong>Game Release Date:</strong>&nbsp;12/30/2014<br /><strong>Price: </strong>FREE!<br /><strong>Game (File)Size:&nbsp;</strong>About 20Mb</font></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:33.333333333333%; padding:0 15px;">
-					
-						
-
-
-
-
-
-</div>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:33.333333333333%; padding:0 15px;">
-					
-						
-
-<div><div id="740450142492192331" align="center" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><a href="http://www.kongregate.com/games/ZenDjer/birdy-flap"><img src="http://cdn1.kongcdn.com/images/sharedassets/badge_dev_220x25.png" width="220" height="25" alt="Kongregate Games logo"></a></div>
-
-
-
-</div>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:33.333333333333%; padding:0 15px;">
-					
-						
-
-<div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
-<img src="uploads/8/2/4/8/8248709/2187700.png?301" alt="Picture" style="width:301;max-width:100%" />
-<div style="display:block;font-size:90%"></div>
-</div></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div></div>
-
-			<div class="clear"></div>
-		</div>
-	</div>
-</div>
-<div id="footer-wrap">
-	<footer style="background-color: #333; color: #fff; border-top: 3px solid #ff0000; padding: 40px 0 20px 0; margin-top: 50px; text-align: center; font-size: 0.9em;">
-		<div style="max-width: 960px; margin: 0 auto; padding: 0 20px;">
-			<div style="margin-bottom: 20px;">
-				<h3 style="color: #ff0000; margin-bottom: 10px; font-size: 1.1em;">Quick Links</h3>
-				<div style="margin: 0;">
-					<a href="index.html" style="color: #fff; text-decoration: none; margin: 0 10px; transition: color 0.3s ease;">Home</a>
-					<a href="about.html" style="color: #fff; text-decoration: none; margin: 0 10px; transition: color 0.3s ease;">About Me</a>
-					<a href="projects.html" style="color: #fff; text-decoration: none; margin: 0 10px; transition: color 0.3s ease;">Projects</a>
-					<a href="music.html" style="color: #fff; text-decoration: none; margin: 0 10px; transition: color 0.3s ease;">Music</a>
-				</div>
-			</div>
-			<div style="margin-bottom: 20px;">
-				<h3 style="color: #ff0000; margin-bottom: 10px; font-size: 1.1em;">Follow Me</h3>
-				<div style="margin: 15px 0;">
-					<a href="https://www.twitch.tv/khaos_demon" title="Twitch" style="display: inline-block; width: 40px; height: 40px; background-color: #ff0000; color: #fff; border-radius: 50%; line-height: 40px; text-align: center; margin: 0 8px; font-size: 1.3em; text-decoration: none;">🎮</a>
-					<a href="https://www.youtube.com/computerwiz/" title="YouTube" style="display: inline-block; width: 40px; height: 40px; background-color: #ff0000; color: #fff; border-radius: 50%; line-height: 40px; text-align: center; margin: 0 8px; font-size: 1.3em; text-decoration: none;">📺</a>
-					<a href="https://soundcloud.com/djdarien" title="SoundCloud" style="display: inline-block; width: 40px; height: 40px; background-color: #ff0000; color: #fff; border-radius: 50%; line-height: 40px; text-align: center; margin: 0 8px; font-size: 1.3em; text-decoration: none;">🎵</a>
-					<a href="https://github.com/djdarien" title="GitHub" style="display: inline-block; width: 40px; height: 40px; background-color: #ff0000; color: #fff; border-radius: 50%; line-height: 40px; text-align: center; margin: 0 8px; font-size: 1.3em; text-decoration: none;">💻</a>
-				</div>
-			</div>
-			<div style="margin-bottom: 20px;">
-				<h3 style="color: #ff0000; margin-bottom: 10px; font-size: 1.1em;">Get Started</h3>
-				<p><strong>Let's work together!</strong></p>
-			</div>
-			<div style="border-top: 1px solid #555; margin-top: 20px; padding-top: 20px; color: #999;">
-				<p>&copy; 2026 Darien Entwistle - All rights reserved. | <a href="https://dentwistle.online" style="color: #ff6666; text-decoration: none;">dentwistle.online</a></p>
-			</div>
-		</div>
-	</footer>
-</div>
-
-		<meta name="google-site-verification" content="IEoIaLWPXABqEX-0LZ2TcAKu_ezsYhcsMHlge_IpLks" />
-		
-	</body>
+</body>
 </html>
